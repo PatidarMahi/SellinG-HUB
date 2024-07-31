@@ -1,0 +1,115 @@
+{% extends 'navbar.html' %}
+{% block main %}
+{% load static %}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Student Signup</h2>
+            </div>
+            <div class="col-12">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'student_login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Signup Start -->
+<div class="contact">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Student Signup</h2>
+        </div>
+        <div class="contact-img">
+            <img src="{% static 'img/addproduct.jpg' %}" alt="Image">
+        </div>
+        <div class="contact-form">
+            <div id="success"></div>
+
+            <form method="POST" action="/signup" enctype="multipart/form-data" >
+                {% csrf_token %}
+
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+
+                <div class="control-group">
+                    <input type="text" name="name" value="{{values.name}}" class="form-control" placeholder="Enter First Name" required>
+                </div>
+
+               <hr>
+
+                <div class="control-group mt-2">
+                    <input type="text" name="branch" value="{{values.branch}}" class="form-control" placeholder="Enter Branch/Cource Name" required>
+                </div>
+
+                <hr>
+
+                <div class="control-group mt-2">
+                    <input type="text" name="hostel_name" value="{{values.hostel_name}}" class="form-control" placeholder="Enter Hostel Name" maxlength="10" required>
+                </div>
+
+                <hr>
+
+                <hr>
+
+                <div class="control-group mt-2">
+                    <input type="text" name="room_no" class="form-control" value="{{values.room_no}}" placeholder="Enter Room Number" required>
+                </div>
+
+                <hr>
+
+                <div class="control-group mt-2">
+                    <input type="text" name="phone_no" class="form-control" value="{{values.phone_no}}" placeholder="Enter Phone Number" required>
+                </div>
+
+                <div class="control-group mt-2">
+                    <input type="email" name="email" class="form-control" value="{{values.email}}" placeholder="Enter Email Id" required>
+                </div>
+
+                <hr>
+
+                <div class="control-group mt-2">
+                    <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
+                </div>
+
+                <hr>
+
+                <div class="control-group mt-2">
+                    <input type="password" name="pswd" class="form-control" placeholder="Enter Confirm Password" required>
+                </div>
+        
+                <hr>
+
+                <div class="mb-5">
+                    <label for="" class="form-label">Upload Image</label>
+                    <input class="form-control" style="height:calc(2.9em + .75rem + 2px)" required name="image"   type="file" id="formFile">
+                </div>
+
+                <div>
+                    <button class="btn btn-custom mt-3" type="submit">Signup</button>
+                </div>
+            </form>
+
+            <hr>
+
+               <div>
+                <p class="text-center" >Have an account? <a href="{% url 'student_login' %}">Login</a> </p> 
+               </div>
+        </div>
+    </div>
+</div>
+<!-- Signup End -->
+ 
+
+ 
+
+{% endblock %}

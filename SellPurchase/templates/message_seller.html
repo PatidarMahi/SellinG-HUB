@@ -1,0 +1,92 @@
+
+{% block main %}
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compose Your Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .message-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 80%;
+            max-width: 500px;
+        }
+
+        .message-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #ff00dd81; /* Blue color */
+        }
+
+        .message-form label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .message-form input[type="text"],
+        .message-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+        }
+
+        .message-form textarea {
+            height: 150px;
+        }
+
+        .message-form button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: auto;
+        }
+
+        .message-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="message-form">
+        <h2>Compose Your Message to the Seller {{products.student.name}}</h2>
+        <h5 class="my-3">{{products.student.name}}</h5>
+        
+        <form method="POST" >
+            <!-- Message subject -->
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+            <!-- Message body -->
+            <label for="body">Message:</label>
+            <textarea id="body" name="body" rows="5" required></textarea>
+            <!-- Submit button -->
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>
+
+{% endblock %}
+

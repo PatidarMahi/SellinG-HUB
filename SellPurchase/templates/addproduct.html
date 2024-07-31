@@ -1,0 +1,117 @@
+{% extends 'navbar.html' %}
+{% block main %}
+{% load static %}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Student Signup</h2>
+            </div>
+            <div class="col-12">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'student_login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Signup Start -->
+<div class="contact">
+    <div class="container">
+        <div class="section-header text-center">
+            <h2>Add Products</h2>
+        </div>
+        <div class="contact-img">
+            <img src="{% static 'img/addproduct.jpg' %}" alt="Image">
+        </div>
+        <div class="contact-form">
+            <div id="success"></div>
+
+            <form action="/addproduct" method="POST" enctype="multipart/form-data">
+
+                {% csrf_token %}
+
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endif %}
+
+                <!-- Productname -->
+                <div class="form-group">
+                    <label for="">Product Name</label>
+                    <input type="text" name="name"
+                     id="" value=" " class="form-control form-control-sm" 
+                     placeholder="">
+                </div>
+
+                <!-- productprice -->
+                <div class="form-group">
+                    <label for="">Product Price</label>
+                    <input type="text" name="price" 
+                    id="" value="" class="form-control form-control-sm"
+                    >
+                </div>
+
+
+              <!-- prodductcategory -->
+          
+      <br>
+
+      <div>
+         <label for="cars">Choose a Category:</label>
+         <select name="category" id="cars">
+         
+             {% for category in categories %}
+            <option value="{{category.name}}">{{category.name}}</option>
+             {% endfor %}
+         </select>
+      </div> 
+        
+        <br>
+
+                <!-- productdescription -->
+                <div class="form-group">
+                    <label for="">Product Description</label>
+                    <input type="text" 
+                    name="description" 
+                    id="" value=""
+                     class="form-control form-control-sm" placeholder="">
+                </div>
+
+                <!-- productimage -->
+                <div class="mb-5">
+                    
+                    <label for="" class="form-label">Upload Product Image</label>
+                    <input class="form-control " required name="image" type="file" id="formFile">
+                    
+                </div>
+                
+ 
+                <hr>
+                <!-- <div class="form-group">
+                    <input class="btn btn-sm btn-info" type="submit" value="Add Product ">
+                </div> -->
+                <div>
+                    <button class="btn btn-custom mt-3" type="submit">Add Product</button>
+                </div>
+
+                
+            </form>
+
+            <hr>
+
+                
+        </div>
+    </div>
+</div>
+<!-- Signup End -->
+ 
+
+ 
+
+{% endblock %}

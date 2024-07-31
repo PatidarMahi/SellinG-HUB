@@ -1,0 +1,194 @@
+{% extends 'navbar.html' %}
+{% block main %}
+{% load static %}
+
+<!-- Carousel Start -->
+<div class="carousel">
+    <div class="container-fluid">
+        <div class="owl-carousel">
+            <div class="carousel-item">
+                <div class="carousel-img" >
+                    <img src="{% static 'img/kartik.png' %}" alt="Image" style="height: 600px;" >
+                </div>
+                <div class="carousel-text">
+                    <h1>Sell and Purchase</h1>
+                    <p>
+                        Sell and Purchase Your Second Hand Products Here
+                    </p>
+                    <div class="carousel-btn">
+                        {% if request.session.student %}
+
+                                  <!-- UPLOAD  -->
+                     <a class="btn btn-custom" href="{% url 'addproduct' %}">Sell Product</a>
+
+                        {% else %}
+                        <a class="btn btn-custom" href="{% url 'student_login' %}">Sell Product</a>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{% static 'img/img4.png' %}" alt="Image" style="height: 600px;">
+                </div>
+                <div class="carousel-text">
+                    <h1>Easily Sharing of Things</h1>
+                    <p>
+                        Easily arrangements of cource books notes and other things.
+                    </p>
+                    <div class="carousel-btn">
+                        {% if request.session.student %}
+
+                       <!-- UPLOAD -->
+                       <a class="btn btn-custom" href="{% url 'addproduct' %}">Sell Product</a>
+            
+
+                        {% else %}
+
+                        <a class="btn btn-custom" href="{% url 'student_login' %}">Sell Product</a>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="carousel-img">
+                    <img src="{% static 'img/img2.jpg' %}" alt="Image" style="height: 600px;">
+                </div>
+                <div class="carousel-text">
+                    <h1>Save Money and Time</h1>
+                    <p>
+                        Easily Availability of Products at Lowest Price
+                    </p>
+                    <div class="carousel-btn">
+                        {% if request.session.student %}
+
+                        <!-- UPLOAD -->
+                        <a class="btn btn-custom" href="{% url 'addproduct' %}">Sell Product</a>
+
+
+                        {% else %}
+
+                        <a class="btn btn-custom" href="{% url 'student_login' %}">Sell Product</a>
+
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Carousel End -->
+
+
+<!-- Video Modal Start-->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <!-- 16:9 aspect ratio -->
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
+                        allow="autoplay"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+ 
+
+
+<!-- Service Start -->
+<div class="service">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Facilities You Get?</p>
+            <h2>Easily sharing of second hand products!!</h2>
+        </div>
+
+        <!-- <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="flaticon-diet"></i>
+                    </div>
+                    <div class="service-text">
+                        <h3>Time Saving</h3>
+                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="flaticon-water"></i>
+                    </div>
+                    <div class="service-text">
+                        <h3>Pure</h3>
+                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="flaticon-healthcare"></i>
+                    </div>
+                    <div class="service-text">
+                        <h3>Saves Money & Time</h3>
+                        <p>Sell and Buy your second hand products inside campus only and save your time and money both.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="flaticon-education"></i>
+                    </div>
+                    <div class="service-text">
+                        <h3>Primary Education</h3>
+                        <p>Lorem ipsum dolor sit amet elit. Phase nec preti facils ornare velit non metus tortor</p>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                <div class="service-icon">
+                        <i class="flaticon-home"></i>
+                    </div>
+                    <div class="service-text">
+                        <h3>All under One Roof</h3>
+                        <p>Easy sharing of products inside hostel only and students don't have to go somewhere outside.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="service-item">
+                    <div class="service-icon">
+                        <i class="flaticon-social-care"></i>
+                    </div>
+                    <div class="service-text">
+                        <h3>Social Sharing</h3>
+                        <p>Sharing things inside campus itself increasing the social sharing among the students.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Service End -->
+
+
+
+
+{% endblock %}

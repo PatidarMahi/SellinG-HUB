@@ -1,0 +1,151 @@
+
+
+{% extends 'navbar.html' %}
+{% block main %}
+{% load static %}
+
+<!-- Page Header Start -->
+<div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Available Products</h2>
+            </div>
+            <div class="col-12">
+                <a href="{% url 'index' %}">Home</a>
+                <a href="{% url 'student_login' %}">Login</a>
+                <a href="{% url 'signup' %}">Signup</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr>
+<!-- Page Header End -->
+
+<!-- Signup Start -->
+
+<!-- <div class="contact"> -->
+    <div class="container">
+        <!-- <div class="section-header text-center">
+            <h2>Student Signup</h2>
+        </div>
+        <div class="contact-img">
+            <img src="{% static 'img/contact.jpg' %}" alt="Image">
+        </div> -->
+        <div class="contact-form">
+            <div id="success"></div>
+            <div class="container-fluid mt-5">
+                <div class="row">
+            
+            
+                    <!-- filter -->
+            
+                    <div class="col-lg-3 mx-auto">
+                        <div class="list-group">
+            
+                           
+                            <a  class="list-group-item list-group-item-action" href="{% url 'product' %}">All Products</a>
+            
+                            {% for category in categories %}
+                                <a href="/?category={{category.id}}"
+                                class="list-group-item list-group-item-action">{{category.name}}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+            
+                    <!-- all products -->
+                    <div id='products' class="col-lg-9 ml">
+                        <div class="row mx-auto">
+                            {% for product in products %}
+                            <div class="card mx-auto mb-3" id="{{product.id}}" style="width: 18rem;">
+                                <img class="card-img-top" src="{{product.image.url}}" alt="Card image cap">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{product.name}}</h5>
+                                     
+                                     
+                                    
+                                    <p class="card-text"><b>{{product.price}}</b></p>
+            
+                                    <p class="card-text">{{product.description}}</p>
+                                    
+                                    <!-- <p class="card-text">{{product.description}}</p>
+                                    <p class="card-text">{{product.description}}</p> -->
+            
+            
+            
+            
+                                     
+            
+                                 
+            
+                                     
+                                </div>
+            
+            
+                                <!--  footer  -->
+                                <div class="card-footer p-0 no-gutters ">
+            
+                                    
+            
+                                    
+            
+                                    <!-- <form action="/#product.id" method="POST" class="btn-block"> -->
+                                        <form action="/seller" method="POST" class="btn-block">
+                                             
+                                        {% csrf_token %}
+                                        <input hidden type="number" name="product" value="{{product.id}}">
+                                        <input href="#" value="Contact To Seller" type="submit" class="float-right btn  btn-block btn-success border"> 
+                                    </form>
+            
+                                 
+                                    
+                                    
+            
+                                </div>
+            
+                                
+            
+             
+            
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+
+        </div>
+    </div>
+<!-- </div> -->
+<!-- Signup End -->
+ 
+
+ 
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
